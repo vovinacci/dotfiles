@@ -1,0 +1,19 @@
+urxvt*font: xft:Monospace:size=8
+urxvt*letterSpace: -1
+urxvt*saveLines: 20000
+urxvt*scrollBar: false
+!urxvt*scrollTtyKeypress: true
+!urxvt*scrollTtyOutput: false
+urxvt*termName: rxvt-256color
+urxvt*transparent: true
+urxvt*shading: 10
+urxvt*foreground: #ffffff
+urxvt*background: #000000
+!
+Xft.dpi: 96
+Xft.lcdfilter: lcddefault
+Xft.antialias: true
+Xft.hinting:true
+Xft.hintstyle: hintfull
+Xft.rgba: rgb
+*customization: -color
