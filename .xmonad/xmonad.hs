@@ -1,5 +1,5 @@
 -- xmonad config by vovin@lurk.kiev.ua
--- Last updated Sun Jul 31 00:25:04 EEST 2016
+-- Last updated Sun Jul 31 12:52:42 EEST 2016
 
 -- Imports
 -- Core
@@ -12,11 +12,16 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 
 -- Layouts
-
+import XMonad.Layout.IM
+import XMonad.Layout.PerWorkspace
+-- import XMonad.Layout.Reflect
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Grid
 
 -- Other
 import XMonad.Util.Run
-import XMonad.Util.EZConfig
+import XMonad.Util.EZConfig(additionalKeys, removeKeys)
+import Data.Ratio ((%))
 
 -- Basic variables
 myTerm = "urxvt"
@@ -26,7 +31,7 @@ myDefaults = defaultConfig {
           terminal 		= myTerm
         , workspaces 		= myWorkspaces
         , modMask 		= mod4Mask			-- Rebind Mod to the Windows key
-        , layoutHook 		= avoidStruts $ layoutHook defaultConfig
+        , layoutHook 		= myLayoutHook
         , manageHook 		= myManageHook
         , startupHook 		= setWMName "LG3D"		-- Java application compatibility
         , borderWidth		= 2
@@ -75,7 +80,36 @@ myWorkspaces :: [String]
 myWorkspaces = ["1:term", "2:web", "3:mail", "4:im", "5", "6:media", "7:library", "8:vm", "9", "0:*"]
 
 -- Layout hooks
-
+myLayoutHook = onWorkspace "1:term" terminalLayout $
+               onWorkspace "2:web"  webLayout $
+               onWorkspace "4:im"   imLayout $
+               onWorkspace "8:vm"   fullL $
+               standardLayouts
+     where
+         tiled = smartBorders $ Tall nmaster delta ratio				-- default tiling algorithm partitions the screen into two panes
+            where
+                nmaster = 1				-- default number of windows in the master pane
+                ratio = 1/2				-- default proportion of screen occupied by master pane
+                delta = 2/100				-- percent of screen to increment by when resizing panes
+         terminalLayout = avoidStruts $ Grid						-- layout for terminal windows
+         webLayout = avoidStruts $ Mirror webTiled					-- layout for browser
+            where
+                webTiled = Tall nmaster delta ratio	-- default tiling algorithm partitions the screen into two panes
+                nmaster = 1				-- default number of windows in the master pane
+                ratio = 3/4				-- ratio of master pane size 
+                delta = 2/100				-- percent of screen to increment by when resizing panes
+         imLayout = avoidStruts $ smartBorders $
+                    withIM skypeRatio skypeRoster (tiled ||| Grid)			-- layout for messengers
+            where
+                skypeRatio = (1%7)
+                skypeRoster  = (ClassName "Skype") `And`
+                   (Not (Title "Options")) `And`
+                   (Not (Title "Налаштування")) `And`
+                   (Not (Role "Chats")) `And`
+                   (Not (Role "ConversationsWindow")) `And`
+                   (Not (Role "CallWindowForm"))
+         fullL = avoidStruts $ noBorders $ Full
+         standardLayouts = avoidStruts (tiled ||| Mirror tiled ||| Grid ||| Full )	-- layout to use on every other workspace
 
 -- Manage hooks
 myManageHook = composeAll
@@ -91,10 +125,10 @@ myManageHook = composeAll
          , className =? "Gimp"			--> doFloat
          , className =? "XCalc"			--> doCenterFloat
          -- Terminals
-         , className =? "xterm"			--> doShift "1:term"
+         , className =? "XTerm"			--> doShift "1:term"
          , className =? "URxvt"			--> doShift "1:term"
          , className =? "Gnome-terminal"	--> doShift "1:term"
-         , className =? "lxterminal"		--> doShift "1:term"
+         , className =? "Lxterminal"		--> doShift "1:term"
          -- Browsers
          , className =? "Iceweasel"		--> doShift "2:web"
          , className =? "Firefox"		--> doShift "2:web"
@@ -119,6 +153,7 @@ myManageHook = composeAll
          , className =? "Zathura"		--> doShift "7:library"
          -- Virtual Machines
          , className =? "dosbox"		--> doShift "8:vm"
+         , className =? "dosbox"		--> doCenterFloat
          , className =? "wine"			--> doShift "8:wm"
          , className =? "VirtualBox"		--> doShift "8:wm"
          , manageDocks
@@ -150,9 +185,12 @@ main = do
             , ppSep = "   "
             , ppWsSep = " "
             , ppLayout  = (\ x -> case x of
-                  "Tall"				-> "[:]"
-                  "Mirror Tall"				-> "[M]"
-                  "Full"				-> "[F]"
+                  "Tall"				-> "[:T]"
+                  "Mirror Tall"				-> "[MT]"
+                  "Full"				-> "[:F]"
+                  "Grid"				-> "[:G]"
+                  "IM Grid"				-> "[IG]"
+                  "IM Tall"				-> "[IT]"
                   _					-> x )
         }
     } 
