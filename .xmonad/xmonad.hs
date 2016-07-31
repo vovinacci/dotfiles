@@ -130,6 +130,7 @@ myManageHook = composeAll
          , className =? "Gnome-terminal"	--> doShift "1:term"
          , className =? "Lxterminal"		--> doShift "1:term"
          -- Browsers
+         , className =? "X-www-browser"		--> doShift "2:web"
          , className =? "Iceweasel"		--> doShift "2:web"
          , className =? "Firefox"		--> doShift "2:web"
          , className =? "chromium"		--> doShift "2:web"
