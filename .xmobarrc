@@ -63,7 +63,7 @@ Config {
                  ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <icon=/home/pi/share/icons/cpu.xbm/> %multicpu% | %dynnetwork% | <icon=/home/pi/share/icons/mem.xbm/> %memory% <icon=/home/pi/share/icons/diskette.xbm/> %swap% | <icon=/home/pi/share/icons/temp.xbm/> %UKKK% | <icon=/home/pi/share/icons/clock.xbm/> <fc=#FFFFCC>%date%</fc> | %kbd% "
+    , template = "%StdinReader% }{ <icon=./share/icons/cpu.xbm/> %multicpu% | %dynnetwork% | <icon=./share/icons/mem.xbm/> %memory% <icon=./share/icons/diskette.xbm/> %swap% | <icon=./share/icons/temp.xbm/> %UKKK% | <icon=./share/icons/clock.xbm/> <fc=#FFFFCC>%date%</fc> | %kbd% "
  }
 
 -- vim:ft=haskell tw=0:
