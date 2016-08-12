@@ -72,6 +72,7 @@ myKeys = [
 -- Remove default keybindings
 myRemoveKeys = [
           ( mod4Mask .|. shiftMask, xK_Return)							-- remove initial terminal binding
+        , ( mod4Mask .|. shiftMask, xK_c)							-- remove initial kill focused window binding
         , ( mod4Mask, xK_p)									-- remove initial dmenu_run binding
         ]
 
