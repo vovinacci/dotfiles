@@ -27,3 +27,18 @@ jobs:
       - name: Run lint checks
         run: |
           echo Run tests here
+  test:
+    # From https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources
+    #   Note: The macOS 11.0 virtual environment is currently provided as a private preview only.
+    # This causes longer build wait times.
+    runs-on: macos-11.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Print versions
+        run: |
+          bash -c 'echo $BASH_VERSION'
+          make --version
+      - name: Run tests
+        run: |
+          echo Run tests here
