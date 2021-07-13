@@ -1,0 +1,29 @@
+name: test
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch.
+  push:
+    branches:
+      - master
+  pull_request:
+    # Note: 'branches' and 'branches-ignore' are target PR branches
+    # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
+    # "For a 'pull_request' event, only branches and tags on the base are evaluated."
+    branches:
+      - "*"
+jobs:
+  test:
+    # From https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources
+    #   Note: The macOS 11.0 virtual environment is currently provided as a private preview only.
+    # This causes longer build wait times.
+    runs-on: macos-11.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Print versions
+        run: |
+          bash -c 'echo $BASH_VERSION'
+          make --version
+      - name: Run tests
+        run: |
+          echo Run tests here
