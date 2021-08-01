@@ -2,6 +2,12 @@
 
 Yet another dotfiles repository.
 
+Inspired by:
+
+- [dotfiles](https://dotfiles.github.io/)
+- [YADR](https://github.com/skwp/dotfiles)
+- [.macos](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
+
 ## Installation
 
 ## Usage
