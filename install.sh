@@ -2,19 +2,20 @@
 
 set -e
 
-if ! command -v git >/dev/null 2>&1; then
-  echo "Cannot find git"
-  exit 1
-fi
-
 INSTALL_PATH="${HOME}/.yamd"
 
-if [ ! -d "${INSTALL_PATH}}" ]; then
+fail() {
+  echo "$*" >&2
+  exit 1
+}
+
+[ "$(uname)" =  Darwin ] || fail "This script should be run on macOS"
+command -v git >/dev/null 2>&1 || fail "Cannot find git"
+
+if [ ! -d "${INSTALL_PATH}" ]; then
   echo "Installing YAMD for the first time"
-  git clone --depth=1 --branch master https://github.com/vovinacci/dotfiles.git "${INSTALL_PATH}" || {
-    echo >&2 "git clone failed"
-    exit 1
-  }
+  git clone --depth=1 --branch master https://github.com/vovinacci/dotfiles.git "${INSTALL_PATH}" ||
+    fail "git clone failed"
   make -C "${INSTALL_PATH}" install
 else
   echo "YAD is already installed"
