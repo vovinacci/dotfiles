@@ -63,6 +63,8 @@ cask "zoom"
 #
 # E-books management software
 cask "calibre"
+# DjView
+cask "djview"
 # Kindle
 cask "kindle"
 
@@ -331,6 +333,8 @@ brew "socat"
 brew "telnet"
 # Efficient rsh-like utility, for using hosts in parallel
 brew "pdsh"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
 # Capture data transmitted as part of TCP connections (flows)
 brew "tcpflow"
 # Replay saved tcpdump files at arbitrary speeds
@@ -370,6 +374,8 @@ brew "awscli"
 brew "aws-iam-authenticator"
 # Automatically rotate your IAM keys daily
 brew "aws-rotate-iam-keys"
+# Session Manager Plugin for the AWS CLI
+cask "session-manager-plugin"
 
 # Security
 #
@@ -391,7 +397,7 @@ cask "spotify"
 # Game trainer
 cask "the-cheat"
 # Lightweight BitTorrent client
-brew "transmission"
+cask "transmission"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
 
