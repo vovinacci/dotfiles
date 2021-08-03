@@ -1,16 +1,20 @@
 # dotfiles
 
-Yet another dotfiles repository.
+Yet another macOS dotfiles.
+
+## Installation
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/vovinacci/dotfiles/master/install.sh)"`
+
+## Usage
+
+## References
 
 Inspired by:
 
 - [dotfiles](https://dotfiles.github.io/)
 - [YADR](https://github.com/skwp/dotfiles)
 - [.macos](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
-
-## Installation
-
-## Usage
 
 ## Contributing
 
