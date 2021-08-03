@@ -48,6 +48,8 @@ mas "Pages", id: 409201541
 mas "Numbers", id: 409203825
 #
 # Chat and meet
+# End-to-end encryption software
+cask "keybase"
 # Slack
 mas "Slack", id: 803453959
 # Skype
@@ -115,8 +117,10 @@ brew "tmux"
 #
 # API documentation browser and code snippet manager
 cask "dash"
-# GUI for vim, made for macOS
+# GUI for vim, made for macOS.
+# Requires ctags - a multilanguage implementation of Ctags
 brew "macvim"
+brew "ctags"
 # JetBrains IDE for various programming languages
 cask "goland"
 cask "intellij-idea-ce"
@@ -257,7 +261,7 @@ brew "python@3.8"
 brew "python@3.9"
 brew "ipython"
 # Ruby
-# Install various Ruby versions and implementations
+brew "ruby"
 brew "ruby-build"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
@@ -301,6 +305,8 @@ brew "bats-support"
 brew "eslint"
 # Fast linters runner for Go
 brew "golangci-lint"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Autoformat shell script source code
@@ -341,6 +347,8 @@ cask "wireshark"
 brew "packer"
 # Tool to build, change, and version infrastructure
 brew "terraform"
+# CLI tool to generate terraform files from existing infrastructure
+brew "terraformer"
 # Tool to generate documentation from Terraform modules
 brew "terraform-docs"
 #
@@ -363,12 +371,27 @@ brew "aws-iam-authenticator"
 # Automatically rotate your IAM keys daily
 brew "aws-rotate-iam-keys"
 
+# Security
+#
+# Two-factor authentication software
+cask "authy"
+# Library to load and enumerate PKCS#11 modules
+brew "p11-kit"
+# OpenVPN Connect client
+cask "openvpn-connect"
+
 # Various
 #
+# Trains AIs to understand and translate texts
+cask "deepl"
 # GOG client
 cask "gog-galaxy"
+# Spotify
+cask "spotify"
 # Game trainer
 cask "the-cheat"
+# Lightweight BitTorrent client
+brew "transmission"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
 
