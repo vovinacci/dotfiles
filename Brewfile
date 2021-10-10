@@ -239,7 +239,6 @@ brew "yq"
 # C
 brew "gcc"
 # Go
-brew "go@1.15"
 brew "go"
 # Groovy
 brew "groovysdk"
@@ -258,9 +257,9 @@ brew "yarn"
 # Language-neutral, platform-neutral extensible mechanism for serializing structured data.
 brew "protobuf"
 # Python
-brew "python@3.7"
 brew "python@3.8"
 brew "python@3.9"
+brew "python@3.10"
 brew "ipython"
 # Ruby
 brew "ruby"
@@ -293,6 +292,8 @@ cask "postman"
 # Containers & Virtualization
 # Pack, ship and run any application as a lightweight container
 cask "docker"
+# Tool for exploring each layer in a docker image
+brew "dive"
 # Hypervisor for x86 virtualization
 cask "virtualbox"
 cask "virtualbox-extension-pack"
@@ -307,6 +308,8 @@ brew "bats-support"
 brew "eslint"
 # Fast linters runner for Go
 brew "golangci-lint"
+# Smarter Dockerfile linter to validate best practices
+brew "hadolint"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Static analysis and lint tool, for (ba)sh scripts
@@ -357,10 +360,18 @@ brew "terraformer"
 brew "terraform-docs"
 #
 # Kubernetes tools
+# GitOps Continuous Delivery for Kubernetes
+brew "argocd"
 # Kubernetes package manager
 brew "helm"
+# Run a Kubernetes cluster locally
+brew "minikube"
 # Kubernetes CLI
 brew "k9s"
+# Switch between kubectl contexts easily and create aliases
+brew "kubectx"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
 # Kubernetes introspection tool for developers
 brew "octant"
 # Tail multiple Kubernetes pods & their containers
