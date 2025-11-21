@@ -7,14 +7,10 @@
 # Homebrew
 # Bundler for non-Ruby dependencies from Homebrew, Homebrew Cask and the Mac App Store.
 tap "homebrew/bundle"
-# A CLI workflow for the administration of macOS applications distributed as binaries
-tap "homebrew/cask"
 # Casks of Ｆ🅾𝓝𝐓𝚂
 tap "homebrew/cask-fonts"
 # Alternate versions of Casks
 tap "homebrew/cask-versions"
-# Default formulae for the missing package manager for macOS
-tap "homebrew/core"
 # Manage background services with launchctl daemon manager
 tap "homebrew/services"
 #
@@ -22,7 +18,7 @@ tap "homebrew/services"
 # bats - TAP-compliant testing framework for Bash
 tap "kaos/shell"
 # Rotate AWS IAM Keys to be in compliance with security best practices
-tap "rhyeal/aws-rotate-iam-keys"
+# tap "rhyeal/aws-rotate-iam-keys"
 
 # Must have software
 #
@@ -52,10 +48,14 @@ mas "Numbers", id: 409203825
 cask "keybase"
 # Slack
 mas "Slack", id: 803453959
+# Signal
+cask "signal"
 # Skype
 cask "skype"
 # Telegram Desktop
 mas "Telegram Desktop", id: 946399090
+# WhatsApp Messenger
+mas "WhatsApp", id: 310633997
 # Zoom
 cask "zoom"
 
@@ -101,7 +101,7 @@ cask "alfred"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
 # Clipboard manager
-cask "flycut"
+#cask "flycut"
 # Window manager for Mac
 mas "Magnet", id: 441258766
 
@@ -123,14 +123,15 @@ cask "dash"
 # Requires ctags - a multilanguage implementation of Ctags
 brew "macvim"
 brew "ctags"
-# JetBrains IDE for various programming languages
-cask "goland"
-cask "intellij-idea-ce"
-cask "pycharm-ce"
+# JetBrains IDE
+# Community Edition
+#cask "intellij-idea-ce"
+# Ultimate edition (required license)
+cask "intellij-idea"
 # Microsoft Visual Studio Code
 cask "visual-studio-code"
 # Apple Xcode
-mas "Xcode", id: 497799835
+#mas "Xcode", id: 497799835
 
 # Version control system
 #
@@ -157,6 +158,8 @@ brew "binutils"
 brew "diffutils"
 # Convert text between DOS, UNIX, and Mac formats.
 brew "dos2unix"
+# XML 1.0 parser
+brew "expat"
 # Collection of GNU find, xargs, and locate.
 # All commands are prepended with the prefix "g". To use these commands with
 # their normal names, add $(brew --prefix findutils)/libexec/gnubin to PATH
@@ -164,6 +167,8 @@ brew "findutils"
 # GNU awk.
 # Requires readline - library for command-line editing.
 brew "gawk"
+# Shell command parallelization utility
+brew "parallel", conflicts_with: ["moreutils"]
 brew "readline"
 # GNU sed, installed as "gsed".
 # To use it as "sed" add $(brew --prefix gnu-sed)/libexec/gnubin to PATH.
@@ -181,7 +186,7 @@ brew "grep"
 # GNU data compression program.
 brew "gzip"
 # Collection of tools that nobody wrote when UNIX was young.
-brew "moreutils"
+brew "moreutils", link: false
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Display word differences between text files
@@ -195,6 +200,7 @@ brew "autoconf"
 brew "automake"
 # Cross-platform make
 brew "cmake"
+brew "cmake-docs"
 # GPG suite - encrypt, decrypt, sign and verify files
 cask "gpg-suite"
 # Improved top
@@ -257,9 +263,7 @@ brew "yarn"
 # Language-neutral, platform-neutral extensible mechanism for serializing structured data.
 brew "protobuf"
 # Python
-brew "python@3.8"
-brew "python@3.9"
-brew "python@3.10"
+brew "python@3.12"
 brew "ipython"
 # Ruby
 brew "ruby"
@@ -271,7 +275,7 @@ brew "scala"
 brew "sbt"
 # Shell
 brew "bash"
-brew "bash-completion2"
+brew "bash-completion@2"
 brew "zsh"
 # Tcl/Tk
 brew "tcl-tk"
@@ -290,13 +294,12 @@ cask "robo-3t"
 cask "postman"
 #
 # Containers & Virtualization
-# Pack, ship and run any application as a lightweight container
-cask "docker"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Tool for exploring each layer in a docker image
 brew "dive"
 # Hypervisor for x86 virtualization
 cask "virtualbox"
-cask "virtualbox-extension-pack"
 #
 # Code formatting, linting & testing
 # Bash Automated Testing System
@@ -334,8 +337,6 @@ brew "nmap"
 brew "socat"
 # User interface to the TELNET protocol
 brew "telnet"
-# Efficient rsh-like utility, for using hosts in parallel
-brew "pdsh"
 # Remote access and connectivity software focused on security
 cask "teamviewer"
 # Capture data transmitted as part of TCP connections (flows)
@@ -372,8 +373,6 @@ brew "k9s"
 brew "kubectx"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
-# Kubernetes introspection tool for developers
-brew "octant"
 # Tail multiple Kubernetes pods & their containers
 brew "stern"
 #
@@ -384,14 +383,16 @@ brew "awscli"
 # Use AWS IAM credentials to authenticate to Kubernetes
 brew "aws-iam-authenticator"
 # Automatically rotate your IAM keys daily
-brew "aws-rotate-iam-keys"
+#brew "aws-rotate-iam-keys"
 # Session Manager Plugin for the AWS CLI
 cask "session-manager-plugin"
+# Azure
+brew "azure-cli"
+# GCP
+cask "google-cloud-sdk"
 
 # Security
 #
-# Two-factor authentication software
-cask "authy"
 # Library to load and enumerate PKCS#11 modules
 brew "p11-kit"
 # OpenVPN Connect client
@@ -401,6 +402,8 @@ cask "openvpn-connect"
 #
 # Trains AIs to understand and translate texts
 cask "deepl"
+# Heroes2
+brew "fheroes2"
 # GOG client
 cask "gog-galaxy"
 # Spotify
