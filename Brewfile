@@ -22,6 +22,8 @@ tap "norwoodj/tap"
 
 # Must have software
 #
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
 # A simple command line interface for the Mac App Store.
 brew "mas"
 
