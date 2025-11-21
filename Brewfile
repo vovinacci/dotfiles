@@ -269,7 +269,7 @@ brew "bash"
 brew "bash-completion@2"
 brew "zsh"
 # Font for Powerlevel10k Zsh theme
-brew "font-meslo-for-powerlevel10k"
+cask "font-meslo-for-powerlevel10k"
 # Tcl/Tk
 brew "tcl-tk"
 
@@ -279,8 +279,6 @@ brew "tcl-tk"
 brew "etcd"
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
-# MongoDB management tool
-cask "robo-3t"
 
 # DevOps tools
 #
@@ -346,8 +344,6 @@ brew "ucspi-tcp"
 cask "wireshark"
 #
 # Infrastructure tools
-# Tool for creating identical machine images for multiple platforms
-brew "packer"
 # Tool to build, change, and version infrastructure
 brew "terraform"
 # CLI tool to generate terraform files from existing infrastructure
@@ -406,14 +402,14 @@ cask "deepl"
 # Heroes2
 brew "fheroes2"
 # GOG client
-cask "gog-galaxy"
+# cask "gog-galaxy"
 # Spotify
 cask "spotify"
 # Game trainer
 cask "the-cheat"
 # Lightweight BitTorrent client
 cask "transmission"
-# Download YouTube videos from the command-line
-brew "youtube-dl"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
 
 # EOF
