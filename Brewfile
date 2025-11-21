@@ -340,8 +340,8 @@ brew "tcpreplay"
 brew "tcptrace"
 # command-line tools for building TCP client-server applications.
 brew "ucspi-tcp"
-# Graphical network analyzer and capture tool
-cask "wireshark"
+# Network protocol analyzer
+cask "wireshark-app"
 #
 # Infrastructure tools
 # Tool to build, change, and version infrastructure
@@ -381,8 +381,8 @@ brew "aws-iam-authenticator"
 cask "session-manager-plugin"
 # Azure
 brew "azure-cli"
-# GCP
-cask "google-cloud-sdk"
+# Google Cloud CLI
+cask "gcloud-cli"
 
 # Security
 #
