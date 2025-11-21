@@ -17,8 +17,8 @@ tap "homebrew/services"
 # Other
 # bats - TAP-compliant testing framework for Bash
 tap "kaos/shell"
-# Rotate AWS IAM Keys to be in compliance with security best practices
-# tap "rhyeal/aws-rotate-iam-keys"
+# Useful developer tools
+tap "norwoodj/tap"
 
 # Must have software
 #
@@ -30,8 +30,8 @@ brew "mas"
 # Browsers
 # default browser
 cask "firefox"
-# Brave web browser, which features security by default.
-# cask "brave-browser"
+# https://arc.net/
+cask "arc"
 # Google Chrome
 cask "google-chrome"
 # Terminal web browsers
@@ -52,8 +52,8 @@ mas "Slack", id: 803453959
 cask "signal"
 # Skype
 cask "skype"
-# Telegram Desktop
-mas "Telegram Desktop", id: 946399090
+# Telegram Lite
+mas "Telegram Lite", id: 946399090
 # WhatsApp Messenger
 mas "WhatsApp", id: 310633997
 # Zoom
@@ -100,8 +100,6 @@ cask "vlc"
 cask "alfred"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
-# Clipboard manager
-#cask "flycut"
 # Window manager for Mac
 mas "Magnet", id: 441258766
 
@@ -118,7 +116,7 @@ brew "tmux"
 # Editors, IDE & code tools
 #
 # API documentation browser and code snippet manager
-cask "dash"
+# cask "dash"
 # GUI for vim, made for macOS.
 # Requires ctags - a multilanguage implementation of Ctags
 brew "macvim"
@@ -131,7 +129,7 @@ cask "intellij-idea"
 # Microsoft Visual Studio Code
 cask "visual-studio-code"
 # Apple Xcode
-#mas "Xcode", id: 497799835
+# mas "Xcode", id: 497799835
 
 # Version control system
 #
@@ -139,6 +137,8 @@ cask "visual-studio-code"
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
+# GitHub command-line tool
+brew "gh"
 # GitHub support to git on the command-line
 brew "hub"
 # Work on GitHub issues on the command-line
@@ -156,6 +156,8 @@ brew "coreutils"
 brew "binutils"
 # File comparison utilities
 brew "diffutils"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Convert text between DOS, UNIX, and Mac formats.
 brew "dos2unix"
 # XML 1.0 parser
@@ -223,10 +225,14 @@ brew "p7zip"
 brew "pigz"
 # Archive manager for data compression and backups
 cask "rar"
+# Library to create, extract, and modify Windows Imaging files
+brew "wimlib"
 # General-purpose data compression with high compression ratio
 brew "xz"
 #
 # Various tools
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
 # CD/DVD/Blu-ray premastering and recording software
 brew "cdrtools"
 # Perl-powered file rename script with many helpful built-ins
@@ -238,6 +244,8 @@ brew "rename"
 brew "jq"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# YAML syntax highlighter to bring colours where only jq could
+brew "yh"
 # Process YAML documents from the CLI
 brew "yq"
 
@@ -251,7 +259,6 @@ brew "groovysdk"
 # Haskell
 brew "haskell-stack"
 # Java
-cask "adoptopenjdk8"
 brew "openjdk"
 brew "maven"
 # Lua
@@ -263,11 +270,8 @@ brew "yarn"
 # Language-neutral, platform-neutral extensible mechanism for serializing structured data.
 brew "protobuf"
 # Python
-brew "python@3.12"
+brew "python"
 brew "ipython"
-# Ruby
-brew "ruby"
-brew "ruby-build"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Scala
@@ -280,8 +284,10 @@ brew "zsh"
 # Tcl/Tk
 brew "tcl-tk"
 
-# Database tooling
+# Database & tooling
 #
+# Key value store for shared configuration and service discovery
+brew "etcd"
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
 # MongoDB management tool
@@ -303,10 +309,10 @@ cask "virtualbox"
 #
 # Code formatting, linting & testing
 # Bash Automated Testing System
-brew "bats-assert"
 brew "bats-core"
-brew "bats-file"
-brew "bats-support"
+brew "kaos/shell/bats-support"
+brew "kaos/shell/bats-assert"
+brew "kaos/shell/bats-file"
 # AST-based pattern checker for JavaScript
 brew "eslint"
 # Fast linters runner for Go
@@ -365,14 +371,18 @@ brew "terraform-docs"
 brew "argocd"
 # Kubernetes package manager
 brew "helm"
+# Automatically generate markdown documentation for helm charts
+brew "norwoodj/tap/helm-docs"
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Kubernetes CLI
 brew "k9s"
+# Build and deploy Go applications on Kubernetes
+brew "ko"
 # Switch between kubectl contexts easily and create aliases
 brew "kubectx"
 # Kubernetes command-line interface
-brew "kubernetes-cli"
+brew "kubernetes-cli", link: false
 # Tail multiple Kubernetes pods & their containers
 brew "stern"
 #
@@ -382,8 +392,6 @@ brew "stern"
 brew "awscli"
 # Use AWS IAM credentials to authenticate to Kubernetes
 brew "aws-iam-authenticator"
-# Automatically rotate your IAM keys daily
-#brew "aws-rotate-iam-keys"
 # Session Manager Plugin for the AWS CLI
 cask "session-manager-plugin"
 # Azure
@@ -397,9 +405,13 @@ cask "google-cloud-sdk"
 brew "p11-kit"
 # OpenVPN Connect client
 cask "openvpn-connect"
+# Editor of encrypted files
+brew "sops"
 
 # Various
 #
+# Allows connection to a computer remotely
+cask "anydesk"
 # Trains AIs to understand and translate texts
 cask "deepl"
 # Heroes2
