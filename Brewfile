@@ -4,17 +4,6 @@
 
 # Taps
 #
-# Homebrew
-# Bundler for non-Ruby dependencies from Homebrew, Homebrew Cask and the Mac App Store.
-tap "homebrew/bundle"
-# Casks of Ｆ🅾𝓝𝐓𝚂
-tap "homebrew/cask-fonts"
-# Alternate versions of Casks
-tap "homebrew/cask-versions"
-# Manage background services with launchctl daemon manager
-tap "homebrew/services"
-#
-# Other
 # bats - TAP-compliant testing framework for Bash
 tap "kaos/shell"
 # Useful developer tools
@@ -52,8 +41,6 @@ cask "keybase"
 mas "Slack", id: 803453959
 # Signal
 cask "signal"
-# Skype
-cask "skype"
 # Telegram Lite
 mas "Telegram Lite", id: 946399090
 # WhatsApp Messenger
@@ -67,8 +54,6 @@ cask "zoom"
 cask "calibre"
 # DjView
 cask "djview"
-# Kindle
-cask "kindle"
 
 # Multimedia
 #
@@ -283,6 +268,8 @@ brew "sbt"
 brew "bash"
 brew "bash-completion@2"
 brew "zsh"
+# Font for Powerlevel10k Zsh theme
+brew "font-meslo-for-powerlevel10k"
 # Tcl/Tk
 brew "tcl-tk"
 
