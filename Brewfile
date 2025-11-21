@@ -247,6 +247,7 @@ brew "groovysdk"
 brew "haskell-stack"
 # Java
 brew "openjdk"
+brew "jenv"
 brew "maven"
 # Lua
 brew "lua"
@@ -259,10 +260,11 @@ brew "protobuf"
 # Python
 brew "python"
 brew "ipython"
+brew "pyenv"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Scala
-brew "scala"
+brew "scala@2.13"
 brew "sbt"
 # Shell
 brew "bash"
