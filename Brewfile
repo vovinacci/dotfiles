@@ -354,6 +354,8 @@ brew "terraformer"
 brew "terraform-docs"
 #
 # Kubernetes tools
+# Run local Kubernetes cluster in Docker
+brew "kind"
 # GitOps Continuous Delivery for Kubernetes
 brew "argocd"
 # Kubernetes package manager
@@ -407,8 +409,8 @@ brew "fheroes2"
 # cask "gog-galaxy"
 # Spotify
 cask "spotify"
-# Game trainer
-cask "the-cheat"
+# Universal game trainer
+cask "bit-slicer"
 # Lightweight BitTorrent client
 cask "transmission"
 # Feature-rich command-line audio/video downloader
